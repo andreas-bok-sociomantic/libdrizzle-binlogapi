@@ -19,6 +19,18 @@ noinst_HEADERS+= libdrizzle/statement_local.h
 noinst_HEADERS+= libdrizzle/structs.h
 noinst_HEADERS+= libdrizzle/windows.hpp
 
+# Paths for new binlog api
+
+noinst_HEADERS+= libdrizzle/binlogevent/event_data.h
+noinst_HEADERS+= libdrizzle/binlogevent/event_header.h
+noinst_HEADERS+= libdrizzle/binlogevent/helper.h
+noinst_HEADERS+= libdrizzle/binlogevent/row_event.h
+noinst_HEADERS+= libdrizzle/binlogevent/table_map_event.h
+noinst_HEADERS+= libdrizzle/binlogevent/event_interface.h
+noinst_HEADERS+= libdrizzle/binlogevent/query_event.h
+noinst_HEADERS+= libdrizzle/binlogevent/row_iterator.h
+noinst_HEADERS+= libdrizzle/binlogevent/column_value.h
+
 lib_LTLIBRARIES+= libdrizzle/libdrizzle.la
 libdrizzle_libdrizzle_la_SOURCES=
 libdrizzle_libdrizzle_la_LIBADD=
@@ -64,5 +76,15 @@ libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/sha1.cc
 libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/state.cc
 libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/statement.cc
 libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/statement_param.cc
+
+# paths for new binlog api
+
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/event_data.cc
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/event_header.cc
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/helper.cc
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/query_event.cc
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/row_event.cc
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/row_iterator.cc
+libdrizzle_libdrizzle_la_SOURCES+= libdrizzle/binlogevent/table_map_event.cc
 
 libdrizzle_libdrizzle_la_LDFLAGS+= -version-info ${LIBDRIZZLE_LIBRARY_VERSION}
